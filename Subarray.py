@@ -1,17 +1,19 @@
-def subarray_with_given_sum(arr, target):
-    left = 0
-    current_sum = 0
-    
-    for right in range(len(arr)):
-        current_sum += arr[right]
+#User function Template for python3
+class Solution:
+    def subarraySum(self, arr, target):
+        left = 0
+        current_sum = 0
         
-        # Shrink window if sum exceeds target
-        while current_sum > target and left <= right:
-            current_sum -= arr[left]
-            left += 1
+        for right in range(len(arr)):
+            current_sum += arr[right]
             
-        # Check for target sum
-        if current_sum == target:
-            return [left + 1, right + 1]  # 1-based indices
-        
-    return [-1]
+            # Shrink window if sum exceeds target
+            while current_sum > target and left <= right:
+                current_sum -= arr[left]
+                left += 1
+                
+            # Check for target sum
+            if current_sum == target:
+                return [left + 1, right + 1]  # 1-based indices
+            
+        return [-1]
