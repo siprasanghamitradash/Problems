@@ -1,11 +1,19 @@
 class Solution {
 public:
-    vector<int> buildArray(vector<int>& nums) {
+    int findNumbers(vector<int>& nums) {
         int n = nums.size();
-        vector<int> arr(n);
+        int c=0;
         for(int i=0;i<n;i++){
-            arr[i] = nums[nums[i]];
+            int t = nums[i];
+            int d = 0;
+            while(t>0){
+                d+=1;
+                t/=10;
+            }
+            if(d%2==0){
+                c+=1;
+            }
         }
-        return arr;
+        return c;
     }
 };
